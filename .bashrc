@@ -8,6 +8,13 @@ echo '
 ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝
 '
 
+CODE='storage/shared/Codes'
+if ! [ -r $CODE ]
+then
+  mkdir storage/shared/Codes
+fi
+
+
 MAIN='storage/shared'
 if [ -d $MAIN ]
 then
