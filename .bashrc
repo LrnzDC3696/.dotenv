@@ -1,4 +1,4 @@
-if [ -r 'storage/shared']
+if [ -r 'storage/shared' ]
 then
 
   CODE='storage/shared/Codes'
