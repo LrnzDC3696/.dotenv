@@ -9,6 +9,7 @@ set guicursor=
 set hidden
 set incsearch
 set noerrorbells
+set noshowmode
 set nowrap
 set nu rnu
 set scrolloff=8
@@ -40,6 +41,7 @@ endif
 
 syntax on
 
+let mapleader = " "
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
@@ -47,8 +49,10 @@ call plug#begin('~/.vim/plugged')
 " Autocompletion
 " coc must have nodejs
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Tree
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
+
 " Code commenter
 Plug 'preservim/nerdcommenter'
 " Status line & Tab line
@@ -81,8 +85,11 @@ nmap <silent> gr <Plug>(coc-references)
 
 " If another buffer tries to replace NERDTree, put it in the other window, and
 " bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-t> :NERDTreeToggle<CR>
 
 
 " NerdCommenter ----------------------------------------
@@ -103,9 +110,20 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 
+" Netrw ----------------------------------------
+
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 3
+let g:netrw_winsize = 25
+let g:netrw_altv=1
+
+
 " Vim Airline ----------------------------------------
 
 " Automatically displays all buffers when there's only one tab open.
 let g:airline#extensions#tabline#enabled = 1
 
+" Put buffer number on buffer line
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
