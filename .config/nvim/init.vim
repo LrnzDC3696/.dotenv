@@ -1,4 +1,5 @@
 " VIM
+set autoindent
 set clipboard=unnamedplus
 set colorcolumn=80
 set encoding=utf-8
@@ -43,20 +44,21 @@ syntax on
 
 let mapleader = " "
 
+# Buffers
+nnoremap <silent> <S-Tab> :bp<CR>
+nnoremap <silent> <Tab> :bn<CR>
+
 " PLUGINS
 call plug#begin('~/.vim/plugged')
 
 " Autocompletion
 " coc must have nodejs
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Tree
-" Plug 'preservim/nerdtree'
-
+" File Management
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 " Code commenter
 Plug 'preservim/nerdcommenter'
-" Status line & Tab line
-Plug 'vim-airline/vim-airline'
 " Automatically close parenthesis, etc
 Plug 'Townk/vim-autoclose'
 " Surround
@@ -73,23 +75,11 @@ set cmdheight=2
 " delays and poor user experience.
 set updatetime=300
 
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-
-" NerdTree ----------------------------------------
-
-" If another buffer tries to replace NERDTree, put it in the other window, and
-" bring back NERDTree.
-" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" nnoremap <leader>n :NERDTreeFocus<CR>
-" nnoremap <C-t> :NERDTreeToggle<CR>
 
 
 " NerdCommenter ----------------------------------------
@@ -119,11 +109,10 @@ let g:netrw_winsize = 25
 let g:netrw_altv=1
 
 
-" Vim Airline ----------------------------------------
+" Telescope ----------------------------------------
 
-" Automatically displays all buffers when there's only one tab open.
-let g:airline#extensions#tabline#enabled = 1
-
-" Put buffer number on buffer line
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+ 
