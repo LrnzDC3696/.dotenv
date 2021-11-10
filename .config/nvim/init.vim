@@ -44,7 +44,7 @@ syntax on
 
 let mapleader = " "
 
-# Buffers
+" Buffers
 nnoremap <silent> <S-Tab> :bp<CR>
 nnoremap <silent> <Tab> :bn<CR>
 
