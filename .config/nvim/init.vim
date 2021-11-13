@@ -57,6 +57,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " File Management
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+" Code Stuff
+" Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
 " Code commenter
 Plug 'preservim/nerdcommenter'
 " Automatically close parenthesis, etc
