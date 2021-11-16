@@ -30,6 +30,7 @@ alias home='cd ~/storage/shared'
 alias config='//data/data/com.termux/files/usr/bin/git --git-dir=/data/data/com.termux/files/home/.cfg/ --work-tree=/data/data/com.termux/files/home'
 alias revise='apt update && apt upgrade'
 alias sdcard='cd /storage/B056-729D'
+alias py='python'
 
 MAIN='storage/shared'
 if [ -d $MAIN ]
