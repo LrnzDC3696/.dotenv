@@ -31,6 +31,7 @@ alias config='//data/data/com.termux/files/usr/bin/git --git-dir=/data/data/com.
 alias revise='apt update && apt upgrade'
 alias sdcard='cd /storage/B056-729D'
 alias py='python'
+alias penv='pipenv'
 
 MAIN='storage/shared'
 if [ -d $MAIN ]
