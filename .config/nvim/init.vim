@@ -1,6 +1,5 @@
 " VIM
 set autoindent
-set clipboard=unnamedplus
 set colorcolumn=80
 set encoding=utf-8
 set expandtab
@@ -23,10 +22,10 @@ set tabstop=4
 filetype indent on
 filetype plugin on
 
-set directory=~/.vim/dirs/tmp     
-set backup                        
-set backupdir=~/.vim/dirs/backups 
-set undofile                      
+set directory=~/.vim/dirs/tmp
+set backup
+set backupdir=~/.vim/dirs/backups
+set undofile
 set undodir=~/.vim/dirs/undos
 set viminfo+=n~/.vim/dirs/viminfo
 
@@ -54,6 +53,8 @@ call plug#begin('~/.vim/plugged')
 " Autocompletion
 " coc must have nodejs
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" html stuff
+Plug 'mattn/emmet-vim'
 " File Management
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -99,7 +100,7 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
 
@@ -118,4 +119,23 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
- 
+
+" AUTOCOMMANDS
+if has("autocmd")
+  augroup FileTypeDetect
+    au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79
+    au BufEnter *.json setl ft=javascript
+    au BufEnter *.py setl ts=4 sw=4 sts=4
+    au BufEnter *.js setl ts=2 sw=2 sts=2
+    au BufEnter *.html setl ts=4 sw=4 sts=4
+  augroup END
+
+  " Automatically removing all trailing whitespace
+  au BufWritePre * %s/\s\+$//e
+
+  " Disable paste mode when leaving Insert Mode
+  au InsertLeave * set nopaste
+endif
+
+vn <silent> <C-c> :w !termux-clipboard-set<CR><CR>
+
