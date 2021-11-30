@@ -138,5 +138,22 @@ if has("autocmd")
   au InsertLeave * set nopaste
 endif
 
-vn <silent> <C-c> :w !termux-clipboard-set<CR>:echo <CR>
+
+let g:is_copy_mode = v:false
+
+function! Copymode() abort
+  if g:is_copy_mode
+    set number
+    set rnu
+    set signcolumn=yes
+    let g:is_copy_mode = v:false
+  else
+    set nonumber
+    set nornu
+    set signcolumn=no
+    let g:is_copy_mode = v:true
+  endif
+endfunction
+
+nn <silent> <C-c> :call Copymode()<CR>
 
