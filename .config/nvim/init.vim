@@ -56,6 +56,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " html stuff
 Plug 'mattn/emmet-vim'
 " File Management
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " Code Stuff
@@ -137,5 +138,5 @@ if has("autocmd")
   au InsertLeave * set nopaste
 endif
 
-vn <silent> <C-c> :w !termux-clipboard-set<CR><CR>
+vn <silent> <C-c> :w !termux-clipboard-set<CR>:echo <CR>
 
