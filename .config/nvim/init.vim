@@ -1,26 +1,38 @@
-" VIM
-set autoindent
-set colorcolumn=80
-set encoding=utf-8
-set expandtab
-set foldmethod=indent
-set foldlevel=69
-set guicursor=
-set hidden
-set incsearch
-set noerrorbells
-set noshowmode
-set nowrap
-set nu rnu
-set scrolloff=8
-set shiftwidth=4
-set signcolumn=yes
-set splitbelow
-set softtabstop=4
-set tabstop=4
+" Welcome Humans
+
+"" DUNNO
+syntax on
 
 filetype indent on
 filetype plugin on
+
+
+"" SETS
+set exrc
+
+set autoindent
+set smartindent
+
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+set colorcolumn=80
+set guicursor=
+set nohlsearch
+set nowrap
+set scrolloff=10
+set signcolumn=yes
+set splitbelow
+
+set hidden
+set incsearch
+set noerrorbells
+
+set number
+set relativenumber
+
 
 set directory=~/.vim/dirs/tmp
 set backup
@@ -39,89 +51,48 @@ if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
-syntax on
 
+"" REMAPS
 let mapleader = " "
 
-" Buffers
+"" - Buffers
 nnoremap <silent> <S-Tab> :bp<CR>
 nnoremap <silent> <Tab> :bn<CR>
 
-" PLUGINS
+
+"" PLUGINS
 call plug#begin('~/.vim/plugged')
 
-" Autocompletion
-" coc must have nodejs
+"" - Autocompletion
+" NOTE: Coc requires nodejs
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" html stuff
+Plug 'tpope/vim-surround'
+Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
-" File Management
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+
+"" - File Management
+" NOTE: Telescope requires ripgrep for live_grep and grep_string
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-" Code Stuff
-" Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } "Suggested
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "For preview
 Plug 'ThePrimeagen/harpoon'
-" Code commenter
+
+"" - Code Commenter
 Plug 'preservim/nerdcommenter'
-" Automatically close parenthesis, etc
-Plug 'Townk/vim-autoclose'
-" Surround
-Plug 'tpope/vim-surround'
+
+"" - Lsp Server
+" Plug 'neovim/nvim-lspconfig'
+
+"" - Other Stuff
+Plug 'tpope/vim-fugitive'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
-" Coc ----------------------------------------
 
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-
-" NerdCommenter ----------------------------------------
-
-" Create default mappings
-let g:NERDCreateDefaultMappings = 1
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
-
-
-" Netrw ----------------------------------------
-
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-let g:netrw_browse_split = 3
-let g:netrw_winsize = 25
-let g:netrw_altv=1
-
-
-" Telescope ----------------------------------------
-
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" AUTOCOMMANDS
+"" AUTOCOMMANDS
 if has("autocmd")
   augroup FileTypeDetect
     au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79
@@ -139,21 +110,22 @@ if has("autocmd")
 endif
 
 
+"" CUSTOM STUFF
 let g:is_copy_mode = v:false
 
 function! Copymode() abort
   if g:is_copy_mode
-    set number
-    set rnu
-    set signcolumn=yes
+    set number relativenumber signcolumn=yes
     let g:is_copy_mode = v:false
   else
-    set nonumber
-    set nornu
-    set signcolumn=no
+    set nonumber norelativenumber signcolumn=no
     let g:is_copy_mode = v:true
   endif
 endfunction
 
 nn <silent> <C-c> :call Copymode()<CR>
+
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" EOF
 
