@@ -1,7 +1,7 @@
 " Welcome Humans
 "
-" TODO: vimwiki, vim-fugitive
-" LEARN: surround, emmet, harpoon
+" TODO:
+" LEARN: surround, emmet, harpoon, vim-fugitive
 
 
 "" DUNNO
@@ -90,7 +90,7 @@ Plug 'preservim/nerdcommenter'
 
 "" - Other Stuff
 Plug 'tpope/vim-fugitive'
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -127,8 +127,4 @@ function! Copymode() abort
 endfunction
 
 nn <silent> <C-c> :call Copymode()<CR>
-
-" lua << EOF
-" require'lspconfig'.pyright.setup{}
-" EOF
 
