@@ -1,3 +1,3 @@
-# Android-Termux-Setup
+# .dotenv
 
 Setup for my phone
