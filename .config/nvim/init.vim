@@ -95,24 +95,6 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
-"" AUTOCOMMANDS
-if has("autocmd")
-  augroup FileTypeDetect
-    au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79
-    au BufEnter *.json setl ft=javascript
-    au BufEnter *.py setl ts=4 sw=4 sts=4
-    au BufEnter *.js setl ts=2 sw=2 sts=2
-    au BufEnter *.html setl ts=4 sw=4 sts=4
-  augroup END
-
-  " Automatically removing all trailing whitespace
-  au BufWritePre * %s/\s\+$//e
-
-  " Disable paste mode when leaving Insert Mode
-  au InsertLeave * set nopaste
-endif
-
-
 "" CUSTOM STUFF
 let g:is_copy_mode = v:false
 
@@ -127,4 +109,26 @@ function! Copymode() abort
 endfunction
 
 nn <silent> <C-c> :call Copymode()<CR>
+
+
+"" AUTOCOMMANDS
+if has("autocmd")
+  augroup FileTypeDetect
+    au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79
+    au BufEnter *.json setl ft=javascript
+    au BufEnter *.py setl ts=4 sw=4 sts=4
+    au BufEnter *.js setl ts=2 sw=2 sts=2
+    au BufEnter *.html setl ts=4 sw=4 sts=4
+  augroup END
+
+  " Automatically removing all trailing whitespace
+  au BufWritePre * %s/\s\+$//e
+  " Automatically removing newlines at the end
+  au BufWritePre * %s/\n\+\%$//
+  " Automatically set a newline to just one at the end
+  au BufWritePre * %s/\(\S\)\%$/\1\r/
+
+  " Disable paste mode when leaving Insert Mode
+  au InsertLeave * set nopaste
+endif
 
