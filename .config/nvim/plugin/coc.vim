@@ -46,9 +46,16 @@ function! s:check_back_space() abort
 endfunction
 
 
+"" DUNNO
+  autocmd FileType json syntax match Comment +\/\/.\+$+
+
+
 "" EXTENSIONS
 let g:coc_global_extensions = [
+    \ 'coc-css',
+    \ 'coc-discord',
     \ 'coc-json',
+    \ 'coc-html',
     \ 'coc-pairs',
     \ 'coc-pyright'
     \ ]
