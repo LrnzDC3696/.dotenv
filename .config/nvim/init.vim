@@ -1,4 +1,8 @@
 " Welcome Humans
+"
+" TODO: vimwiki, vim-fugitive
+" LEARN: surround, emmet, harpoon
+
 
 "" DUNNO
 syntax on
@@ -69,7 +73,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
-
 
 "" - File Management
 " NOTE: Telescope requires ripgrep for live_grep and grep_string
