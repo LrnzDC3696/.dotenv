@@ -91,7 +91,7 @@ Plug 'preservim/nerdcommenter'
 "" - Other Stuff
 Plug 'tpope/vim-fugitive'
 " Plug 'vimwiki/vimwiki'
-Plug 'mhinz/vim-signify'
+Plug 'chrisbra/changesPlugin'
 
 call plug#end()
 
