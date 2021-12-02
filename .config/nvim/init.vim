@@ -124,9 +124,9 @@ if has("autocmd")
   " Automatically removing all trailing whitespace
   au BufWritePre * %s/\s\+$//e
   " Automatically removing newlines at the end
-  au BufWritePre * %s/\n\+\%$//
+  " au BufWritePre * %s/\n\+\%$//
   " Automatically set a newline to just one at the end
-  au BufWritePre * %s/\(\S\)\%$/\1\r/
+  " au BufWritePre * %s/\(\S\)\%$/\1\r/
 
   " Disable paste mode when leaving Insert Mode
   au InsertLeave * set nopaste
