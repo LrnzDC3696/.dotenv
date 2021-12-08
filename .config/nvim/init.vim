@@ -122,6 +122,13 @@ if has("autocmd")
     au BufEnter *.html setl ts=4 sw=4 sts=4
   augroup END
 
+  augroup SpecificFilesStuff
+    au FileType html setl tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType json setl tabstop=2 shiftwidth=2 softtabstop=2
+    au FileType vim setl tabstop=2 shiftwidth=2 softtabstop=2
+
+
+  augroup END
   " Automatically removing all trailing whitespace
   au BufWritePre * %s/\s\+$//e
   " Automatically removing newlines at the end
