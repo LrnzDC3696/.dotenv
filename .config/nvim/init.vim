@@ -27,7 +27,9 @@ set guicursor=
 set nohlsearch
 set nowrap
 set scrolloff=10
-set signcolumn=yes
+set sidescrolloff=10
+
+set signcolumn=yes:2
 set splitbelow
 
 set hidden
@@ -59,6 +61,10 @@ endif
 "" REMAPS
 let mapleader = " "
 
+"" - Visual Indent
+vmap > >gv
+vmap < <gv
+
 "" - Buffers
 nnoremap <silent> <S-Tab> :bp<CR>
 nnoremap <silent> <Tab> :bn<CR>
@@ -66,6 +72,9 @@ nnoremap <silent> <Tab> :bn<CR>
 
 "" PLUGINS
 call plug#begin('~/.vim/plugged')
+
+"" - Get Good
+
 
 "" - Autocompletion
 " NOTE: Coc requires nodejs
@@ -83,15 +92,22 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "For preview
 Plug 'ThePrimeagen/harpoon'
 
 "" - Code Commenter
-Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-commentary'
 
-"" - Lsp Server
-" Plug 'neovim/nvim-lspconfig'
-
-"" - Other Stuff
+"" - Git Stuff
 Plug 'tpope/vim-fugitive'
-" Plug 'vimwiki/vimwiki'
 Plug 'chrisbra/changesPlugin'
+
+"" - Syntax Highlighting
+Plug 'vim-syntastic/syntastic'
+
+"" - Python Stuff
+Plug 'vim-scripts/indentpython.vim'
+Plug 'tpope/vim-dotenv'
+
+"" - Misc
+"" NOTE: Needs Go Lang
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()
 
@@ -112,6 +128,20 @@ endfunction
 nn <silent> <C-c> :call Copymode()<CR>
 
 
+au BufNewFile,BufRead *.py
+  \ set tabstop=4
+  \ set softtabstop=4
+  \ set shiftwidth=4
+  \ set textwidth=79
+  \ set expandtab
+  \ set autoindent
+  \ set fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css
+  \ set tabstop=2
+  \ set softtabstop=2
+  \ set shiftwidth=2
+
 "" AUTOCOMMANDS
 if has("autocmd")
   augroup FileTypeDetect
@@ -122,13 +152,6 @@ if has("autocmd")
     au BufEnter *.html setl ts=4 sw=4 sts=4
   augroup END
 
-  augroup SpecificFilesStuff
-    au FileType html setl tabstop=2 shiftwidth=2 softtabstop=2
-    au FileType json setl tabstop=2 shiftwidth=2 softtabstop=2
-    au FileType vim setl tabstop=2 shiftwidth=2 softtabstop=2
-
-
-  augroup END
   " Automatically removing all trailing whitespace
   au BufWritePre * %s/\s\+$//e
   " Automatically removing newlines at the end

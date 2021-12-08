@@ -144,6 +144,17 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
+" Custom from above
+function! Beautify() abort
+  :call Format
+  :call OR
+endfunction
+
+augroup Nani
+  au!
+  au BufWritePre *.py :call Beautify()
+augroup END
+
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
