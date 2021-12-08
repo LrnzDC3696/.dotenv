@@ -146,14 +146,9 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 
 " Custom from above
 function! Beautify() abort
-  :call Format
-  :call OR
+  :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+  :call CocAction('format')
 endfunction
-
-augroup Nani
-  au!
-  au BufWritePre *.py :call Beautify()
-augroup END
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that

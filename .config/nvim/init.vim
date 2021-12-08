@@ -117,7 +117,7 @@ let g:is_copy_mode = v:false
 
 function! Copymode() abort
   if g:is_copy_mode
-    set number relativenumber signcolumn=yes
+    set number relativenumber signcolumn=yes:2
     let g:is_copy_mode = v:false
   else
     set nonumber norelativenumber signcolumn=no
