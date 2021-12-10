@@ -1,7 +1,4 @@
 " Welcome Humans
-"
-" TODO:
-" LEARN: surround, emmet, harpoon, vim-fugitive
 
 
 "" PLUGINS
@@ -55,6 +52,7 @@ set wildmenu
 set wildignore+=*.pyc
 set wildignore+=**/.git/*
 
+
 "" DUNNO
 syntax on
 
@@ -93,50 +91,20 @@ nn <silent> <C-c> :call Copymode()<CR>
 
 "" AUTOCOMMANDS
 if has("autocmd")
-  augroup FileTypeDetect
-    au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79
-    " au BufEnter *.json setl ft=javascript
-    " au BufEnter *.py setl ts=4 sw=4 sts=4
-    " au BufEnter *.js setl ts=2 sw=2 sts=2
-    " au BufEnter *.html setl ts=4 sw=4 sts=4
-  augroup END
 
   " Automatically removing all trailing whitespace
-  au BufWritePre * %s/\s\+$//e
+  autocmd BufWritePre * %s/\s\+$//e
 
   " Disable paste mode when leaving Insert Mode
-  au InsertLeave * set nopaste
+  autocmd InsertLeave * set nopaste
+
+  " I dunno but it's Coc Stuff
+  augroup CocStuff
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+
+    " Highlight the symbol and its references when holding the cursor.
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+  augroup END
+
 endif
-
-
-" From emmet file
-"autocmd FileType html,css EmmetInstall
-
-" From coc file
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  " autocmd FileType json setl formatexpr=CocAction('formatSelected')
-  " autocmd FileType json syntax match Comment +\/\/.\+$+
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-"" GROUPS
-" au BufNewFile,BufRead *.py
-"   \ set tabstop=4
-"   \ set softtabstop=4
-"   \ set shiftwidth=4
-"   \ set textwidth=79
-"   \ set expandtab
-"   \ set autoindent
-"   \ set fileformat=unix
-
-" au BufNewFile,BufRead *.js, *.html, *.css
-"   \ set tabstop=2
-"   \ set softtabstop=2
-"   \ set shiftwidth=2
 
