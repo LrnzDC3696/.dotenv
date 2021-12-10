@@ -9,8 +9,8 @@ Main Bash:
 [*] Have a fzf then make a tmux session from the selected dir
 
 Vim:
-[ ] Clean vimrc
-[ ] Html tabs, etc
+[*] Clean vimrc
+[*] Html tabs, etc
 [ ] Use Plugins
 [ ] Bash linter
 
