@@ -9,7 +9,9 @@ Main Bash:
 [ ] Have a fzf then make a tmux session from the selected dir
 
 Vim:
-[ ] Setup vimrc
+[ ] Clean vimrc
+[ ] Html tabs, etc
+[ ] Use Plugins
 
 SSH:
 [ ] Learn and make easier

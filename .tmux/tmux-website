@@ -1,0 +1,35 @@
+tmux new -s website -d
+echo "tmux: Session website Created"
+
+go_to_tmux=True
+setup_window=True
+
+
+while [ "$#" -gt 0 ]; do
+    curr=$1
+    shift
+
+    case "$curr" in
+    "-ns")
+        setup_window=False
+        ;;
+    "-ng")
+        go_to_tmux=False
+        ;;
+    *) echo "Unavailable command... $curr"
+    esac
+done
+
+
+if [ setup_window ]; then
+    tmux neww -t website: -n shell -d 'cd ~/storage/shared/Codes/website && pipenv shell && nvim'
+    tmux neww -t website: -n shell -d 'cd ~/storage/shared/Codes/website && pipenv shell'
+else;
+    echo "tmux session: window setup done"
+fi
+
+if [ go_to_tmux ]; then
+    tmux a -t website
+else;
+    echo "tmux session: website created"
+fi
