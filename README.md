@@ -12,6 +12,7 @@ Vim:
 [ ] Clean vimrc
 [ ] Html tabs, etc
 [ ] Use Plugins
+[ ] Bash linter
 
 SSH:
 [ ] Learn and make easier
