@@ -1,3 +1,5 @@
+#!/data/data/com.termux/files/usr/bin bash
+
 if [ -r 'storage/shared' ]
 then
 
@@ -32,9 +34,10 @@ alias revise='apt update -y && apt upgrade -y'
 alias sdcard='cd /storage/B056-729D'
 alias py='python'
 alias penv='pipenv'
+alias resource='source ~/.bashrc'
 
-alias Web='bash ~/.tmux/tmux-website'
-alias Tmux='bash ~/.tmux/tmux-sessionizer'
+alias Web='bash ~/.tmux/tmux-website.sh'
+alias Tmux='bash ~/.tmux/tmux-sessionizer.sh'
 
 MAIN='storage/shared'
 if [ -d $MAIN ]
