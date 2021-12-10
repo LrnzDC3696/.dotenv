@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/data/data/com.termux/files/usr/bin bash
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/storage/shared/Codes ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/storage/shared/Codes ~/.config/nvim -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
