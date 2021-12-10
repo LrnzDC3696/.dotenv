@@ -4,77 +4,8 @@
 " LEARN: surround, emmet, harpoon, vim-fugitive
 
 
-"" DUNNO
-syntax on
-
-filetype indent on
-filetype plugin on
-
-
-"" SETS
-set exrc
-
-set autoindent
-set smartindent
-
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-
-set colorcolumn=80
-set guicursor=
-set nohlsearch
-set nowrap
-set scrolloff=10
-set sidescrolloff=10
-
-set signcolumn=yes:2
-set splitbelow
-
-set hidden
-set incsearch
-set noerrorbells
-
-set number
-set relativenumber
-
-
-set directory=~/.vim/dirs/tmp
-set backup
-set backupdir=~/.vim/dirs/backups
-set undofile
-set undodir=~/.vim/dirs/undos
-set viminfo+=n~/.vim/dirs/viminfo
-
-if !isdirectory(&backupdir)
-    call mkdir(&backupdir, "p")
-endif
-if !isdirectory(&directory)
-    call mkdir(&directory, "p")
-endif
-if !isdirectory(&undodir)
-    call mkdir(&undodir, "p")
-endif
-
-
-"" REMAPS
-let mapleader = " "
-
-"" - Visual Indent
-vmap > >gv
-vmap < <gv
-
-"" - Buffers
-nnoremap <silent> <S-Tab> :bp<CR>
-nnoremap <silent> <Tab> :bn<CR>
-
-
 "" PLUGINS
 call plug#begin('~/.vim/plugged')
-
-"" - Get Good
-
 
 "" - Autocompletion
 " NOTE: Coc requires nodejs
@@ -112,6 +43,25 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 call plug#end()
 
 
+"" SETS but actually idk just copy pasted from ThePrimeagen
+"" - Hello front end masters
+set path+=**
+
+"" - Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
+
+"" - Ignore files
+set wildignore+=*.pyc
+set wildignore+=**/.git/*
+
+"" DUNNO
+syntax on
+
+filetype indent on
+filetype plugin on
+
+
 "" CUSTOM STUFF
 let g:is_copy_mode = v:false
 
@@ -125,31 +75,30 @@ function! Copymode() abort
   endif
 endfunction
 
+
+"" REMAPS
+let mapleader = " "
+
+"" - Visual Indent
+vmap > >gv
+vmap < <gv
+
+"" - Buffers
+nnoremap <silent> <S-Tab> :bp<CR>
+nnoremap <silent> <Tab> :bn<CR>
+
+"" - Copying mode
 nn <silent> <C-c> :call Copymode()<CR>
 
-
-au BufNewFile,BufRead *.py
-  \ set tabstop=4
-  \ set softtabstop=4
-  \ set shiftwidth=4
-  \ set textwidth=79
-  \ set expandtab
-  \ set autoindent
-  \ set fileformat=unix
-
-au BufNewFile,BufRead *.js, *.html, *.css
-  \ set tabstop=2
-  \ set softtabstop=2
-  \ set shiftwidth=2
 
 "" AUTOCOMMANDS
 if has("autocmd")
   augroup FileTypeDetect
     au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79
-    au BufEnter *.json setl ft=javascript
-    au BufEnter *.py setl ts=4 sw=4 sts=4
-    au BufEnter *.js setl ts=2 sw=2 sts=2
-    au BufEnter *.html setl ts=4 sw=4 sts=4
+    " au BufEnter *.json setl ft=javascript
+    " au BufEnter *.py setl ts=4 sw=4 sts=4
+    " au BufEnter *.js setl ts=2 sw=2 sts=2
+    " au BufEnter *.html setl ts=4 sw=4 sts=4
   augroup END
 
   " Automatically removing all trailing whitespace
@@ -158,4 +107,36 @@ if has("autocmd")
   " Disable paste mode when leaving Insert Mode
   au InsertLeave * set nopaste
 endif
+
+
+" From emmet file
+"autocmd FileType html,css EmmetInstall
+
+" From coc file
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  " autocmd FileType json setl formatexpr=CocAction('formatSelected')
+  " autocmd FileType json syntax match Comment +\/\/.\+$+
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+"" GROUPS
+" au BufNewFile,BufRead *.py
+"   \ set tabstop=4
+"   \ set softtabstop=4
+"   \ set shiftwidth=4
+"   \ set textwidth=79
+"   \ set expandtab
+"   \ set autoindent
+"   \ set fileformat=unix
+
+" au BufNewFile,BufRead *.js, *.html, *.css
+"   \ set tabstop=2
+"   \ set softtabstop=2
+"   \ set shiftwidth=2
 
