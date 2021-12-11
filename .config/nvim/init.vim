@@ -42,15 +42,15 @@ call plug#end()
 
 "" SETS but actually idk just copy pasted from ThePrimeagen
 "" - Hello front end masters
-set path+=**
+" set path+=**
 
 "" - Nice menu when typing `:find *.py`
-set wildmode=longest,list,full
-set wildmenu
+" set wildmode=longest,list,full
+" set wildmenu
 
 "" - Ignore files
-set wildignore+=*.pyc
-set wildignore+=**/.git/*
+" set wildignore+=*.pyc
+" set wildignore+=**/.git/*
 
 
 "" DUNNO

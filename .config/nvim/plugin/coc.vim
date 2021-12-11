@@ -163,7 +163,9 @@ let g:coc_global_extensions = [
   \ 'coc-discord',
   \ 'coc-json',
   \ 'coc-html',
+  \ 'coc-markdownlint',
   \ 'coc-pairs',
-  \ 'coc-pyright'
+  \ 'coc-pyright',
+  \ 'coc-sh'
   \ ]
 

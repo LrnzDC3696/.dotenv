@@ -2,7 +2,7 @@
 
 Setup for my phone
 
-## Todo:
+## Todo
 
 Main Bash:
 [*] Have a func to create a setuped tmux session then go to it
@@ -12,7 +12,7 @@ Vim:
 [*] Clean vimrc
 [*] Html tabs, etc
 [ ] Use Plugins
-[ ] Bash linter
+[*] Bash linter (not working tho)
 
 SSH:
 [ ] Learn and make easier
