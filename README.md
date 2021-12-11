@@ -6,15 +6,15 @@ Setup for my phone
 
 ### Main Bash
 
-- [*] Have a func to create a setuped tmux session then go to it
-- [*] Have a fzf then make a tmux session from the selected dir
+- [x] Have a func to create a setuped tmux session then go to it
+- [x] Have a fzf then make a tmux session from the selected dir
 
 ### Vim
 
-- [*] Clean vimrc
-- [*] Html tabs, etc
+- [x] Clean vimrc
+- [x] Html tabs, etc
 - [ ] Use Plugins
-- [*] Bash linter (not working tho)
+- [x] Bash linter (not working tho)
 
 ### SSH
 
