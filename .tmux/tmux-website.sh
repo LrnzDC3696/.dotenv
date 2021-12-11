@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin bash
 
 # Creating a session
-tmux new -s website -n editor -d
+tmux new -s website -n editor -d 'cd ~/storage/shared/Codes/website && pipenv shell'
 echo "Tmux: Session 'website' Created"
 
 # Default
