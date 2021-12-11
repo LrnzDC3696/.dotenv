@@ -82,8 +82,8 @@ vmap > >gv
 vmap < <gv
 
 "" - Buffers
-nnoremap <silent> <S-Tab> :bp<CR>
-nnoremap <silent> <Tab> :bn<CR>
+nnoremap <silent> <C-l> :bp<CR>
+nnoremap <silent> <C-h> :bn<CR>
 
 "" - Copying mode
 nn <silent> <C-c> :call Copymode()<CR>
