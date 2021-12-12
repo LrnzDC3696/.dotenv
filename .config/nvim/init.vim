@@ -24,10 +24,7 @@ Plug 'tpope/vim-commentary'
 
 "" - Git Stuff
 Plug 'tpope/vim-fugitive'
-Plug 'chrisbra/changesPlugin'
-
-"" - Syntax Highlighting
-Plug 'vim-syntastic/syntastic'
+Plug 'chrisbra/changesPlugin' " NANI!!!!!!!!!! I think I should use git gutter
 
 "" - Python Stuff
 Plug 'vim-scripts/indentpython.vim'
@@ -38,19 +35,6 @@ Plug 'tpope/vim-dotenv'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()
-
-
-"" SETS but actually idk just copy pasted from ThePrimeagen
-"" - Hello front end masters
-" set path+=**
-
-"" - Nice menu when typing `:find *.py`
-" set wildmode=longest,list,full
-" set wildmenu
-
-"" - Ignore files
-" set wildignore+=*.pyc
-" set wildignore+=**/.git/*
 
 
 "" DUNNO
@@ -107,4 +91,10 @@ if has("autocmd")
   augroup END
 
 endif
+
+
+"" TOO LITTLE CODE FOR THEIR OWN FILE
+
+"" - Hexokinase
+let g:Hexokinase_highlighters = ['backgroundfull']
 
