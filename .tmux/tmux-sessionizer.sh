@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/storage/shared/Codes ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/storage/shared/Codes ~/.config -type d -not -path '*/\.*' | fzf)
 fi
 
 if [[ -z $selected ]]; then
