@@ -27,6 +27,8 @@ fi
 
 alias script='cd ~/storage/shared/Codes/scripts'
 alias code='cd ~/storage/shared/Codes/'
+alias v='nvim'
+alias vim='nvim'
 alias nvimrc='cd ~/.config/nvim/'
 alias home='cd ~/storage/shared'
 alias config='//data/data/com.termux/files/usr/bin/git --git-dir=/data/data/com.termux/files/home/.cfg/ --work-tree=/data/data/com.termux/files/home'
@@ -37,7 +39,7 @@ alias penv='pipenv'
 alias resource='source ~/.bashrc'
 
 alias Web='bash ~/.tmux/tmux-website.sh'
-alias Tmux='bash ~/.tmux/tmux-sessionizer.sh'
+alias ff='bash ~/.tmux/tmux-sessionizer.sh'
 
 MAIN='storage/shared'
 if [ -d $MAIN ]
