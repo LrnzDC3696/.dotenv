@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/storage/shared/Codes ~/.config -type d -not -path '*/\.*' | fzf)
+    selected=$(find ~/storage/shared/Codes ~/.config/nvim -type d -not -path '*/\.git*' | fzf)
 fi
 
 if [[ -z $selected ]]; then
