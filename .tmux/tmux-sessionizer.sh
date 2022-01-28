@@ -1,5 +1,6 @@
 #!/data/data/com.termux/files/usr/bin bash
 
+# is the path is given then assign else fzf
 if [[ $# -eq 1 ]]; then
     selected=$1
 else

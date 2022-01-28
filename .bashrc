@@ -38,10 +38,11 @@ alias py='python'
 alias penv='pipenv'
 alias resource='source ~/.bashrc'
 alias m='python main.py'
+alias r='python run.py'
 
 alias Web='bash ~/.tmux/tmux-website.sh'
-alias ff='bash ~/.tmux/tmux-sessionizer.sh'
-alias fff='cd $(find ~/storage/shared/Codes/ ~/.config/nvim -type d -not -path "*/\.git*" | fzf)'
+alias tf='bash ~/.tmux/tmux-sessionizer.sh'
+alias ff='cd $(find ~/storage/shared/Codes/ ~/.config/nvim -type d -not -path "*/\.git*" | fzf)'
 
 MAIN='storage/shared'
 if [ -d $MAIN ]

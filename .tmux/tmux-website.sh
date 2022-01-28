@@ -28,8 +28,8 @@ done
 # Checks
 
 if [ $setup_window == "True" ]; then
-    tmux neww -t website: -n shell -d 'cd ~/storage/shared/Codes/website && pipenv shell'
-    tmux neww -t website: -n server -d 'cd ~/storage/shared/Codes/website && pipenv shell'
+    tmux neww -t website: -n shell -d 'cd ~/storage/shared/Codes/aitechademia/website && pipenv shell'
+    tmux neww -t website: -n server -d 'cd ~/storage/shared/Codes/aitechademia/website && pipenv shell'
 else
     echo "Tmux Website: window setup skipped"
 fi

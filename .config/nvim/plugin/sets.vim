@@ -9,7 +9,7 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-set colorcolumn=80
+set colorcolumn=88
 set guicursor=
 set nohlsearch
 set nowrap
