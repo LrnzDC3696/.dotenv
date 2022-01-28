@@ -5,11 +5,12 @@
 call plug#begin('~/.vim/plugged')
 
 "" - Autocompletion
+Plug 'github/copilot.vim'
 " NOTE: Coc requires nodejs
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
 Plug 'alvan/vim-closetag'
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 
 "" - File Management
 " NOTE: Telescope requires ripgrep for live_grep and grep_string
@@ -17,7 +18,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } "Suggested
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "For preview
-Plug 'ThePrimeagen/harpoon'
+" Plug 'ThePrimeagen/harpoon'
 
 "" - Code Commenter
 Plug 'tpope/vim-commentary'
@@ -28,11 +29,11 @@ Plug 'chrisbra/changesPlugin' " NANI!!!!!!!!!! I think I should use git gutter
 
 "" - Python Stuff
 Plug 'vim-scripts/indentpython.vim'
-Plug 'tpope/vim-dotenv'
+" Plug 'tpope/vim-dotenv'
 
 "" - Misc
 "" NOTE: Needs Go Lang
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+" Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 call plug#end()
 
@@ -96,5 +97,5 @@ endif
 "" TOO LITTLE CODE FOR THEIR OWN FILE
 
 "" - Hexokinase
-let g:Hexokinase_highlighters = ['virtual']
+" let g:Hexokinase_highlighters = ['virtual']
 
