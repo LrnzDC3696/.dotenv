@@ -4,6 +4,11 @@ Setup for my phone
 
 ## Todo
 
+### PRIORITY
+
+- [x] Make the sessionizer better currently it is bad
+- [ ] add Params to the sessionizer
+
 ### Main Bash
 
 - [x] Have a func to create a setuped tmux session then go to it

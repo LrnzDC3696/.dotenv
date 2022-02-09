@@ -25,8 +25,6 @@ then
   '
 fi
 
-alias script='cd ~/storage/shared/Codes/scripts'
-alias code='cd ~/storage/shared/Codes/'
 alias v='nvim'
 alias vim='nvim'
 alias nvimrc='cd ~/.config/nvim/'
@@ -40,9 +38,9 @@ alias resource='source ~/.bashrc'
 alias m='python main.py'
 alias r='python run.py'
 
-alias Web='bash ~/.tmux/tmux-website.sh'
-alias tf='bash ~/.tmux/tmux-sessionizer.sh'
+alias tf='bash ~/.tmux/tmux-portal.sh'
 alias ff='cd $(find ~/storage/shared/Codes/ ~/.config/nvim -type d -not -path "*/\.git*" | fzf)'
+alias bruh='git add . && git commit -m "bruh" && git push'
 
 MAIN='storage/shared'
 if [ -d $MAIN ]

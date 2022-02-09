@@ -7,7 +7,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/storage/shared/Codes ~/.config/nvim -type d -not -path '*/\.git*' | fzf)
+    selected=$(find ~/storage/shared/Codes ~/.tmux ~/.config/nvim -type d -not -path '*/\.git*' | fzf)
 fi
 
 # If nothing is selected; then exit
@@ -21,28 +21,41 @@ tmux_running=$(pgrep tmux)  # Check if tmux is running
 
 # 2. CREATE A NEW SESSION WITH THE NAME OF THE DIRECTORY  ---------------------------- #
 
-# If tmux is dead; then start a new session
+
+# If tmux is not running on a tmux session; then make a new one
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    echo "exited"
-    exit 0
+    in_a_tmux=false
+    tmux new-session -s $selected_name -c $selected -d
 fi
 
-# If tmux has a session with the same name; then switch to it
+# If was called in a tmux session; then make a new session
 if ! tmux has-session -t $selected_name 2> /dev/null; then
-    tmux new-session -d -s $selected_name -c $selected 'pipenv shell'
-    echo "Tmux: Created new tmux session $selected_name"
+    in_a_tmux=true
+    tmux new-session -ds $selected_name -c $selected
 fi
+
+# Rename the current window name
+tmux rename-window -t $selected_name:1 editor
 
 
 # 3. CREATE NECESSARY WINDOWS FOR THE SESSION ---------------------------------------- #
 
-tmux neww -t $selected_name:1 -n 'editor' -d 'pipenv shell'
-tmux neww -t $selected_name:2 -n 'shell' -d 'pipenv shell'
+tmux neww -t $selected_name: -n logs -c $selected
+tmux neww -t $selected_name: -n shell -c $selected
+
+if [[ -f $selected/Pipfile ]]; then
+    tmux send-keys -t $selected_name:editor "pipenv shell" Enter "clear" Enter
+    tmux send-keys -t $selected_name:logs "pipenv shell" Enter "clear" Enter
+    tmux send-keys -t $selected_name:shell "pipenv shell" Enter "clear" Enter
+fi
 
 
 # 4. SWITCH TO THE SESSION ----------------------------------------------------------- #
-tmux switch-client -t $selected_name
+if [[ $in_a_tmux == true ]]; then
+    tmux switch-client -t $selected_name
+else
+    tmux a -t $selected_name
+fi
 
 
 # ------------------------------------------------------------------------------------ #
