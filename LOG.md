@@ -23,9 +23,14 @@
 
 ## Setting up code environment
 
-### Cool stuff first
+### Github
 
-1. `pkg install -y fzf`
+1. `pkg install gh -y`
+1. `gh auth login`
+
+### Cool stuff
+
+1. `pkg install -y fzf tree neofetch`
 
 ### Tmux
 
@@ -34,8 +39,7 @@
 ### Nvim
 
 1. Installing Plugin Manager \
-    `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
+    `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
 1. Installing Dependencies
     * Github Copilot `pkg install nodejs -y`
     * Coc nvim `pkg install nodejs -y`
@@ -56,11 +60,3 @@ Installing Pillow
 1. `pkg install libjpeg-turbo`
 1. `LDFLAGS="-L/system/lib/" CFLAGS="-I/data/data/com.termux/files/usr/include/"`
 1. `pip install Pillow`
-
-### Github
-
-1. `pkg install gh -y`
-
-### Other useful tools
-
-`tree`
