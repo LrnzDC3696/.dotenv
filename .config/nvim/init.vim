@@ -16,8 +16,8 @@ Plug 'alvan/vim-closetag'
 " NOTE: Telescope requires ripgrep for live_grep and grep_string
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } "Suggested
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "For preview
+" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } "Suggested
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "For preview
 " Plug 'ThePrimeagen/harpoon'
 
 "" - Code Commenter
