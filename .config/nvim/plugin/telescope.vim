@@ -1,7 +1,7 @@
 " Telescope ----------------------------------------
 
 "" DUNNO
-:lua require('telescope').load_extension('fzf')
+" :lua require('telescope').load_extension('fzf')
 
 lua << EOF
 require('telescope').setup({
