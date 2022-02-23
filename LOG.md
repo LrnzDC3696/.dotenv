@@ -38,16 +38,23 @@
 
 ### Nvim
 
+1. Move coc-settings.json and plugin/coc.vim
+    * `nvimrc`
+    * `mv {coc-settings.json,plugin/coc.vim} ..`
 1. Installing Plugin Manager \
-    `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
+    `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
+    --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
 1. Installing Dependencies
     * Github Copilot `pkg install nodejs -y`
     * Coc nvim `pkg install nodejs -y`
-1. Installing the Plugins 
+1. Installing the Plugins
     * `:PlugInstall`
 1. Setting up the plugins
     * Github Copilot `:Copilot Setup`
     * Coc `:CocInstall coc-pyright`
+1. Putting back Coc
+    * `mv ../coc-settings.json .`
+    * `mv ../coc.vim plugin/.`
 
 ### Python
 
@@ -57,6 +64,7 @@
 #### Special Cases
 
 Installing Pillow
+
 1. `pkg install libjpeg-turbo`
 1. `LDFLAGS="-L/system/lib/" CFLAGS="-I/data/data/com.termux/files/usr/include/"`
 1. `pip install Pillow`
