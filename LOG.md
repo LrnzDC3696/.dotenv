@@ -47,6 +47,7 @@
 1. Installing Dependencies
     * Github Copilot `pkg install nodejs -y`
     * Coc nvim `pkg install nodejs -y`
+    * Telescope `pkg install ripgrep -y`
 1. Installing the Plugins
     * `:PlugInstall`
 1. Setting up the plugins
