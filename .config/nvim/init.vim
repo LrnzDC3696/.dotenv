@@ -5,7 +5,6 @@
 call plug#begin('~/.vim/plugged')
 
 "" - Autocompletion
-Plug 'github/copilot.vim'
 " NOTE: Coc requires nodejs
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
@@ -28,6 +27,9 @@ Plug 'chrisbra/changesPlugin' " NANI!!!!!!!!!! I think I should use git gutter
 Plug 'vim-scripts/indentpython.vim'
 Plug 'tpope/vim-dotenv'
 
+"" - Speed Counter?
+Plug 'ThePrimeagen/vim-apm'
+
 "" - Theme Stuff
 Plug 'morhetz/gruvbox'
 
@@ -46,7 +48,6 @@ let g:gruvbox_hls_cursor = 'aqua'
 colorscheme gruvbox
 
 "" CUSTOM STUFF
-
 
 let g:is_copy_mode = v:false
 
