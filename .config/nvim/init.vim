@@ -18,7 +18,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 " Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' } "Suggested
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} "For preview
-" Plug 'ThePrimeagen/harpoon'
+Plug 'ThePrimeagen/harpoon'
 
 "" - Code Commenter
 Plug 'tpope/vim-commentary'
@@ -34,9 +34,9 @@ Plug 'vim-scripts/indentpython.vim'
 "" - Misc
 "" NOTE: Needs Go Lang
 " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'morhetz/gruvbox'
 
 call plug#end()
-
 
 "" DUNNO
 syntax on
@@ -44,8 +44,15 @@ syntax on
 filetype indent on
 filetype plugin on
 
+"" COLORSHEME STUFF
+let g:gruvbox_color_column = 'red'
+let g:gruvbox_hls_cursor = 'aqua'
+
+colorscheme gruvbox
 
 "" CUSTOM STUFF
+
+
 let g:is_copy_mode = v:false
 
 function! Copymode() abort
@@ -57,7 +64,6 @@ function! Copymode() abort
     let g:is_copy_mode = v:true
   endif
 endfunction
-
 
 "" REMAPS
 let mapleader = " "
@@ -71,7 +77,7 @@ nnoremap <silent> <C-l> :bp<CR>
 nnoremap <silent> <C-h> :bn<CR>
 
 "" - Copying mode
-nn <silent> <C-c> :call Copymode()<CR>
+nn <silent> <leader>C :call Copymode()<CR>
 
 
 "" AUTOCOMMANDS
