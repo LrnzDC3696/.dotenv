@@ -31,7 +31,8 @@ Plug 'tpope/vim-dotenv'
 Plug 'ThePrimeagen/vim-apm'
 
 "" - Theme Stuff
-Plug 'morhetz/gruvbox'
+Plug 'Mofiqul/dracula.nvim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -42,10 +43,9 @@ filetype indent on
 filetype plugin on
 
 "" COLORSHEME STUFF
-let g:gruvbox_color_column = 'red'
-let g:gruvbox_hls_cursor = 'aqua'
+set termguicolors
 
-colorscheme gruvbox
+colorscheme dracula
 
 "" CUSTOM STUFF
 
