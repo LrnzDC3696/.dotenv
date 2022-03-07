@@ -31,8 +31,8 @@ Plug 'tpope/vim-dotenv'
 Plug 'ThePrimeagen/vim-apm'
 
 "" - Theme Stuff
-Plug 'Mofiqul/dracula.nvim'
-" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -63,11 +63,6 @@ endfunction
 
 "" REMAPS
 let mapleader = " "
-
-"" - Visual Indent
-vmap > >gv
-vmap < <gv
-
 
 "" - Buffers
 nnoremap <silent> <C-l> :bp<CR>
