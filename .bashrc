@@ -25,16 +25,19 @@ then
   '
 fi
 
+alias c='clear'
 alias v='nvim'
 alias vim='nvim'
 alias nvimrc='cd ~/.config/nvim/'
 alias home='cd ~/storage/shared'
-alias config='//data/data/com.termux/files/usr/bin/git --git-dir=/data/data/com.termux/files/home/.cfg/ --work-tree=/data/data/com.termux/files/home'
+alias cg='//data/data/com.termux/files/usr/bin/git --git-dir=/data/data/com.termux/files/home/.cfg/ --work-tree=/data/data/com.termux/files/home'
+alias resource='source ~/.bashrc'
 alias revise='apt update -y && apt upgrade -y'
 alias sdcard='cd /storage/B056-729D'
-alias py='python'
+
+alias p='python'
+alias pm='python manage.py'
 alias penv='pipenv'
-alias resource='source ~/.bashrc'
 alias m='python main.py'
 alias r='python run.py'
 

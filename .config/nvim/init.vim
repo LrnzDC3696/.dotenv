@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 " NOTE: Coc requires nodejs
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-surround'
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
 
 "" - File Management
 " NOTE: Telescope requires ripgrep for live_grep and grep_string
@@ -21,14 +21,10 @@ Plug 'tpope/vim-commentary'
 
 "" - Git Stuff
 Plug 'tpope/vim-fugitive'
-Plug 'chrisbra/changesPlugin' " NANI!!!!!!!!!! I think I should use git gutter
 
 "" - Python Stuff
 Plug 'vim-scripts/indentpython.vim'
 Plug 'tpope/vim-dotenv'
-
-"" - Speed Counter?
-Plug 'ThePrimeagen/vim-apm'
 
 "" - Theme Stuff
 Plug 'dracula/vim', { 'as': 'dracula' }

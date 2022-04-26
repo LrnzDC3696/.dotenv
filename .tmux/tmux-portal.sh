@@ -47,6 +47,7 @@ if [[ -f $selected/Pipfile ]]; then
     tmux send-keys -t $selected_name:editor "pipenv shell" Enter "clear" Enter
     tmux send-keys -t $selected_name:logs "pipenv shell" Enter "clear" Enter
     tmux send-keys -t $selected_name:shell "pipenv shell" Enter "clear" Enter
+    tmux send-keys -t $selected_name:editor "v" Enter
 fi
 
 

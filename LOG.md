@@ -64,6 +64,14 @@
 
 #### Special Cases
 
+Installing Cryptography
+
+1. `pkg install clang`
+1. `pkg install libcrypt`
+1. `pkg install libffi`
+1. `export CARGOT_BUILD_TARGET=armv7-linux-androideabi`
+    replace aarch64-linux-android with armv7-linux-androideabi if your phone is arm(32bit)
+
 Installing Pillow
 
 1. `pkg install libjpeg-turbo`
